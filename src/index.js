@@ -9,19 +9,16 @@ makeMenuDropDown(hamburgerMenuButton, dropDownMenu);
 const nextSlideButton = document.querySelector(".next-button");
 const prevSlideButton = document.querySelector(".prev-button");
 const wideContainer = document.querySelector(".wide-carousel-container");
-const indicatorContainer = document.querySelector(".indicator-container");
+const indicatorContainer = document.querySelector(".indicator-container")
 
-const slidePositions = [-3000,-2000,-1000,0];
+const imagesList = wideContainer.querySelectorAll('img');
+const numberOfImages = imagesList.length;
+
+const slideWidth = 1000;
 let currentPosition = 0;
 
-nextSlideButton.addEventListener("click", () => {
-  currentPosition = (currentPosition + 1) % slidePositions.length;
-  adjustCarouselPosition()
-});
-prevSlideButton.addEventListener("click", () => {
-  if (--currentPosition < 0) currentPosition = slidePositions.length - 1;
-  adjustCarouselPosition();
-});
+nextSlideButton.addEventListener("click", moveCarouselForward);
+prevSlideButton.addEventListener("click", moveCarouselBackward);
 indicatorContainer.addEventListener("click", (event) => {
   if (event.target.classList.contains("slide-indicator"))
   {
@@ -31,7 +28,16 @@ indicatorContainer.addEventListener("click", (event) => {
     }
 });
 
-
+function moveCarouselBackward()
+{
+  if (--currentPosition < 0) currentPosition = numberOfImages-1;
+  adjustCarouselPosition();
+}
+function moveCarouselForward()
+{
+  currentPosition = (currentPosition + 1) % numberOfImages;
+  adjustCarouselPosition()
+}
 
 function adjustCarouselPosition()
 {
@@ -40,6 +46,8 @@ function adjustCarouselPosition()
   prevIndicator.classList.remove("selected");
   const newIndicator = indicatorContainer.querySelector(`.slide-indicator[data-position="${currentPosition}"]`)
   newIndicator.classList.add("selected");
-  wideContainer.style.right = `${slidePositions[currentPosition]}px`;
+  wideContainer.style.left = `-${(slideWidth * currentPosition)}px`;
 }
 
+
+setInterval(moveCarouselForward, 5000);

@@ -105,8 +105,7 @@ h6 {
 .wide-carousel-container {
   display: flex;
   position: absolute;
-  right: -3000px;
-  transition: width 2s linear 1s;
+  transition: all 0.1s linear 0.1s;
 }
 .next-button-container, .previous-button-container {
   position: absolute;
