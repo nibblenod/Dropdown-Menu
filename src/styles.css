@@ -105,4 +105,46 @@ h6 {
 .wide-carousel-container {
   display: flex;
   position: absolute;
+  right: -3000px;
+  transition: width 2s linear 1s;
 }
+.next-button-container, .previous-button-container {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  font-size: 1rem;
+}
+.next-button-container {
+  left: 95%;
+}
+.previous-button-container {
+  right: 95%;
+}
+.carousel-main-frame {
+  .indicator-container {
+    position: absolute;
+    z-index: 1;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    gap: 15px;
+    top: 95%;
+    right: 43%;
+
+
+    span {
+      background: grey;
+      opacity: 0.8;
+      outline: 1px solid black;
+      border-radius: 50%;
+      height: 15px;
+      width: 15px;
+    }
+  }
+
+}
+
+.slide-indicator.selected {
+  border: 2px solid red;
+}
+
