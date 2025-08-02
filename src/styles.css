@@ -61,3 +61,44 @@ h6 {
 #__next {
   isolation: isolate;
 }
+
+.top-navigation-bar {
+  padding: 20px;
+}
+
+.hamburger-menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.7rem;
+  display: block;
+  margin: 0 auto;
+}
+
+.drop-down-menu {
+  background: peachpuff;
+}
+
+
+.drop-down-menu > ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.drop-down-menu > ul > li {
+  border-bottom: 1px solid black;
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px 10px 10px;
+}
+.drop-down-menu .menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+
+
